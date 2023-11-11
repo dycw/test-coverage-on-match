@@ -1,0 +1,24 @@
+# coverage
+[tool.coverage]
+
+[tool.coverage.coverage_conditional_plugin.rules]
+os-eq-linux = 'sys_platform == "linux"'
+os-eq-macos = 'sys_platform == "darwin"'
+os-eq-windows = 'sys_platform == "windows"'
+os-ne-linux = 'sys_platform != "linux"'
+os-ne-macos = 'sys_platform != "darwin"'
+os-ne-windows = 'sys_platform != "windows"'
+version-ge-311 = "sys_version_info >= (3, 11)"
+
+[tool.coverage.html]
+directory = ".coverage/html"
+
+[tool.coverage.report]
+exclude_lines = ["# pragma: no cover", "@overload"]
+fail_under = 100.0
+skip_covered = true
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+data_file = ".coverage/data"
