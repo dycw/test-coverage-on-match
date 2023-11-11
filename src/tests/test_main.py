@@ -1,5 +1,9 @@
-from dycw_template import __version__
+from typing import Literal
+
+from pytest import mark
+from test_coverage_on_match import map_abc
 
 
-def test_main() -> None:
-    assert isinstance(__version__, str)
+@mark.parametrize("x", ["a", "b", "c"])
+def test_map_abc(x: Literal["a", "b", "c"]) -> None:
+    assert map_abc(x) == x  # noqa: S101
